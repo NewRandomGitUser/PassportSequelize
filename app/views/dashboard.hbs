@@ -3,3 +3,16 @@
 <p>{{nome.firstname}} </p>
 <p>{{nome.lastname}} </p>
 <p>{{nome.email}} </p>
+
+
+{{#each postagem}}
+  <p>
+    {{this}}
+  </p>
+{{else}}
+{{/each}}
+
+<form action = "/addPostagem/" method="POST">
+  <textarea name = "conteudo" class="form-control"></textarea>
+  <button class="btn btn-success" type="submit">Criar postagem</button>
+</form>

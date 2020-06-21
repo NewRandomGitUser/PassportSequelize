@@ -1,6 +1,7 @@
+'use strict';
 module.exports = function(sequelize, Sequelize) {
 
-    var User = sequelize.define('user', {
+    var User = sequelize.define('User', {
 
         id: {
             autoIncrement: true,
@@ -49,6 +50,12 @@ module.exports = function(sequelize, Sequelize) {
 
 
     });
+
+    User.associate = function(models) {
+      User.hasMany(
+        models.Post
+      )
+    };
 
     return User;
 
