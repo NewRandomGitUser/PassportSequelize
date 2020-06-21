@@ -1,14 +1,14 @@
 var models = require("../models");
 
 
-exports.signup = function(req, res)
+exports.register = function(req, res)
 {
-  res.render('signup');
+  res.render('register');
 }
 
-exports.signin = function(req, res)
+exports.login = function(req, res)
 {
-  res.render('signin');
+  res.render('login');
 }
 
 exports.dashboard = async function(req, res)
@@ -42,5 +42,5 @@ exports.addPostagem = function(req, res)
     // req.flash("error_msg","Houve um erro durante o salvamento da postagem")
     req.redirect("/")
   })
-  
+
 }

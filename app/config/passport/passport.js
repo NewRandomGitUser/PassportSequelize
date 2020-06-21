@@ -5,7 +5,7 @@ var bCrypt = require('bcrypt-nodejs');
 module.exports = function(passport, user) {
     var User = user;
     var LocalStrategy = require('passport-local').Strategy;
-    passport.use('local-signup', new LocalStrategy(
+    passport.use('local-register', new LocalStrategy(
     {
             usernameField: 'email',
             passwordField: 'password',
@@ -15,7 +15,7 @@ module.exports = function(passport, user) {
       var generateHash = function(password) {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
       };
-      
+
       User.findOne({
         where: {email: email}}).then(function(user)
         {
@@ -60,8 +60,8 @@ module.exports = function(passport, user) {
       });
     });
 
-    //LOCAL SIGNIN
-    passport.use('local-signin', new LocalStrategy(
+    //LOCAL login
+    passport.use('local-login', new LocalStrategy(
     {
         // by default, local strategy uses username and password, we will override with email
         usernameField: 'email',
@@ -94,7 +94,7 @@ module.exports = function(passport, user) {
         }).catch(function(err) {
             console.log("Error:", err);
             return done(null, false, {
-                message: 'Something went wrong with your Signin'
+                message: 'Something went wrong with your login'
             });
         });
     }
