@@ -6,6 +6,12 @@ var session    = require('express-session')
 var bodyParser = require('body-parser')
 var env = require('dotenv').config();
 var exphbs = require('express-handlebars')
+//For Handlebars
+app.set('views', './app/views')
+app.engine('hbs', exphbs({
+  extname: '.hbs'
+}));
+app.set('view engine', '.hbs');
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -43,14 +49,7 @@ models.sequelize.sync().then(function() {
     console.log(err, "Something went wrong with the Database Update!")
 
 });
-global.underscore = require("underscore");
-global = []
-//For Handlebars
-app.set('views', './app/views')
-app.engine('hbs', exphbs({
-    extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
+
 
 
 app.listen(5000, function(err) {

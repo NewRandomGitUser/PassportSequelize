@@ -13,7 +13,8 @@ module.exports = function(app, passport) {
     successRedirect: '/dashboard',
     failureRedirect: '/signin'
   }));
-  app.post('/addPostagem',isLoggedIn,authController.dashboard);
+  app.post('/addPostagem',isLoggedIn,authController.addPostagem);
+
 
 
 

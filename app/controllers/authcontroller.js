@@ -1,4 +1,5 @@
-var exports = module.exports = {}
+var models = require("../models");
+
 
 exports.signup = function(req, res)
 {
@@ -10,10 +11,18 @@ exports.signin = function(req, res)
   res.render('signin');
 }
 
-exports.dashboard = function(req, res)
+exports.dashboard = async function(req, res)
 {
-  global.push(req.body.conteudo)
-  res.render('dashboard',{nome:req.user,postagem:global});
+
+
+  const conteudoPosts = await models.Post.findAll(
+    {where:{
+      UserId:req.user.id
+    }})
+
+  console.log("conteudoPosts" + conteudoPosts)
+  res.render('dashboard',{nome:req.user, postagem:conteudoPosts})
+
 }
 
 exports.logout = function(req, res)
@@ -22,4 +31,29 @@ exports.logout = function(req, res)
   {
       res.redirect('/');
   });
+}
+
+exports.addPostagem = function(req, res)
+{
+
+  const novaPostagem = {
+    conteudo: req.body.conteudo,
+    UserId: req.user.id,
+  }
+
+  new models.Post(novaPostagem).save().then(() =>{
+
+    // models.Post.find().lean().then((categorias) =>{
+    //   res.render("dashboard",{postagem:categorias})})
+
+    // req.flash("success_msg","Postagem criada com sucesso!")
+    res.redirect("/dashboard")
+  }).catch((err)=>{
+    // req.flash("error_msg","Houve um erro durante o salvamento da postagem")
+    req.redirect("/")
+  })
+
+
+
+
 }
