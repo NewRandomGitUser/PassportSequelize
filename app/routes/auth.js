@@ -15,9 +15,6 @@ module.exports = function(app, passport) {
   }));
   app.post('/addPostagem',isLoggedIn,authController.addPostagem);
 
-
-
-
   function isLoggedIn(req, res, next)
   {
       if (req.isAuthenticated())

@@ -1,44 +1,25 @@
 {
-
     "development": {
-
         "username": "root",
-
         "password": "you_new_password",
-
         "database": "NewDB",
-
         "host": "local",
-
         "dialect": "mysql2"
-
     },
 
     "test": {
-
         "username": "",
-
         "password": null,
-
         "database": "",
-
         "host": "",
-
         "dialect": "mysql"
-
     },
 
     "production": {
-
         "username": "",
-
         "password": null,
-
         "database": "",
-
         "host": "127.0.0.1",
-
         "dialect": "mysql"
-
     }
 }
