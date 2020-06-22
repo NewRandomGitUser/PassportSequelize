@@ -3,6 +3,10 @@ const models = require('../models')
 module.exports = function(sequelize, Sequelize) {
 
   const UsuariosPertenceGrupo = sequelize.define('UsuariosPertenceGrupo', {
+    id: {
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+    },
     UserId: {
       type: Sequelize.INTEGER,
       references: {
@@ -20,12 +24,18 @@ module.exports = function(sequelize, Sequelize) {
   });
 
   UsuariosPertenceGrupo.associate = function(models) {
-    models.User.belongsToMany(models.Grupo,{through:'UsuariosPertenceGrupo'})
+    models.User.belongsToMany(models.Grupo,{through:'UsuariosPertenceGrupo'});
+    models.Grupo.belongsToMany(models.User,{through:'UsuariosPertenceGrupo'});
+    UsuariosPertenceGrupo.hasMany(models.Postagem)
   };
 
-  UsuariosPertenceGrupo.associate = function(models) {
-    models.Grupo.belongsToMany(models.User,{through:'UsuariosPertenceGrupo'})
-  };
+  // UsuariosPertenceGrupo.associate = function(models) {
+  //   models.Grupo.belongsToMany(models.User,{through:'UsuariosPertenceGrupo'})
+  // };
+  //
+  // UsuariosPertenceGrupo.associate = function(models) {
+  //   UsuariosPertenceGrupo.hasMany(models.Postagem)
+  // };
 
   return UsuariosPertenceGrupo;
 }

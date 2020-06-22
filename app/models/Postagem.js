@@ -1,31 +1,32 @@
-'use strict';
 const models = require('../models')
 module.exports = function(sequelize, Sequelize) {
-    var Grupo = sequelize.define('Grupo', {
+
+    var Postagem = sequelize.define('Postagem', {
+
         id: {
             autoIncrement: true,
             primaryKey: true,
             type: Sequelize.INTEGER
         },
 
-        grupoNome: {
+        conteudo: {
             type: Sequelize.STRING,
             notEmpty: true
         },
 
-        UserId:{
+        UsuariosPertenceGrupoId:{
           type: Sequelize.INTEGER,
           references:{
-            model:'Users',
+            model:'UsuariosPertenceGrupos',
             key:'id',
           }
         }
-    });
 
-    Grupo.associate = function (models) {
-      models.Grupo.belongsTo(models.User,{foreignKey:'UserId',as:'moderadorId'});
-  };
+      });
 
-
-  return Grupo;
+        //Postagems N - 1 Usuario: Cada Postagem é feito por um usuário
+        Postagem.associate = function (models) {
+        Postagem.belongsTo(models.UsuariosPertenceGrupo);
+      };
+      return Postagem;
 }
