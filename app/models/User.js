@@ -51,11 +51,18 @@ module.exports = function(sequelize, Sequelize) {
 
     });
 
+    //Usuario 1 - N Posts: Usuario faz posts, cada post é feito por um usuário
     User.associate = function(models) {
-      User.hasMany(
-        models.Post
-      )
+      User.hasMany(models.Post)
     };
+
+    //Usuario 1 - N Grupos: Usuario modera grupos, cada grupo é moderado por um usuário
+    User.associate = function(models) {
+      User.hasMany(models.Grupo)
+    };
+
+
+
 
     return User;
 

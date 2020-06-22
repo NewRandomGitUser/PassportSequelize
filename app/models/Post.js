@@ -14,6 +14,7 @@ module.exports = function(sequelize, Sequelize) {
         },
       });
 
+        //Posts N - 1 Usuario: Cada Post é feito por um usuário
         Post.associate = function (models) {
         models.Post.belongsTo(models.User, {
           onDelete: "CASCADE",
