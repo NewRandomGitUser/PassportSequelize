@@ -29,13 +29,5 @@ module.exports = function(sequelize, Sequelize) {
     UsuariosPertenceGrupo.hasMany(models.Postagem)
   };
 
-  // UsuariosPertenceGrupo.associate = function(models) {
-  //   models.Grupo.belongsToMany(models.User,{through:'UsuariosPertenceGrupo'})
-  // };
-  //
-  // UsuariosPertenceGrupo.associate = function(models) {
-  //   UsuariosPertenceGrupo.hasMany(models.Postagem)
-  // };
-
   return UsuariosPertenceGrupo;
 }
