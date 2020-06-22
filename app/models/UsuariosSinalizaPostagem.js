@@ -26,6 +26,11 @@ module.exports = function(sequelize, Sequelize) {
   UsuariosSinalizaPostagem.associate = function(models) {
     models.User.belongsToMany(models.Postagem,{through:'UsuariosSinalizaPostagem'});
     models.Postagem.belongsToMany(models.User,{through:'UsuariosSinalizaPostagem'});
+    models.UsuariosSinalizaPostagem.hasOne(models.AcoesEmCurso,{
+      foreignKey: {
+        allowNull: true
+      }
+    });
   };
 
   return UsuariosSinalizaPostagem;
