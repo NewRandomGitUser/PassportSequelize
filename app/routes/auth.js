@@ -22,4 +22,8 @@ module.exports = function(app, passport) {
       res.redirect('/login');
   }
 
+  app.get('/perfil',isLoggedIn,authController.perfil);
+
+
+
 }
