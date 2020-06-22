@@ -3,19 +3,19 @@ var models = require("../models");
 
 exports.register = function(req, res)
 {
-  res.render('register');
+  res.render('usuarios/register');
 }
 
 exports.login = function(req, res)
 {
-  res.render('login');
+  res.render('usuarios/login');
 }
 
 exports.home = async function(req, res)
 {
   const conteudoPosts = await models.Post.findAll(
   {where:{UserId:req.user.id}});
-  res.render('home',{nome:req.user,
+  res.render('usuarios/home',{nome:req.user,
                           postagem:conteudoPosts})
 }
 
@@ -40,7 +40,7 @@ exports.addPostagem = function(req, res)
     res.redirect("/home")
   }).catch((err)=>{
     // req.flash("error_msg","Houve um erro durante o salvamento da postagem")
-    req.redirect("/")
+    res.redirect("/")
   })
 
 }

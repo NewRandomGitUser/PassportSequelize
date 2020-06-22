@@ -22,7 +22,7 @@ var exphbs = require('express-handlebars')
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessions
   app.get('/', function(req, res) {
-      res.send('Welcome to Passport with Sequelize');
+      res.send('Teste');
   });
 
 //Models
