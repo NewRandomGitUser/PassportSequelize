@@ -4,13 +4,13 @@ module.exports = function(app, passport) {
   app.get('/register', authController.register);
   app.get('/login', authController.login);
   app.post('/register', passport.authenticate('local-register', {
-    successRedirect: '/dashboard',
+    successRedirect: '/home',
     failureRedirect: '/register'}));
 
-  app.get('/dashboard',isLoggedIn,authController.dashboard);
+  app.get('/home',isLoggedIn,authController.home);
   app.get('/logout',authController.logout);
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/dashboard',
+    successRedirect: '/home',
     failureRedirect: '/login'
   }));
   app.post('/addPostagem',isLoggedIn,authController.addPostagem);

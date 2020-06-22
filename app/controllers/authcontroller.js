@@ -11,11 +11,11 @@ exports.login = function(req, res)
   res.render('login');
 }
 
-exports.dashboard = async function(req, res)
+exports.home = async function(req, res)
 {
   const conteudoPosts = await models.Post.findAll(
   {where:{UserId:req.user.id}});
-  res.render('dashboard',{nome:req.user,
+  res.render('home',{nome:req.user,
                           postagem:conteudoPosts})
 }
 
@@ -37,7 +37,7 @@ exports.addPostagem = function(req, res)
 
   new models.Post(novaPostagem).save().then(() =>{
     // req.flash("success_msg","Postagem criada com sucesso!")
-    res.redirect("/dashboard")
+    res.redirect("/home")
   }).catch((err)=>{
     // req.flash("error_msg","Houve um erro durante o salvamento da postagem")
     req.redirect("/")
