@@ -6,13 +6,14 @@ var session    = require('express-session')
 var bodyParser = require('body-parser')
 var env = require('dotenv').config();
 var exphbs = require('express-handlebars')
-
+var path = require('path')
 //For Handlebars
   app.set('views', './app/views')
   app.engine('hbs', exphbs({
     extname: '.hbs'
   }));
   app.set('view engine', '.hbs');
+
 //For BodyParser
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
@@ -40,6 +41,8 @@ var exphbs = require('express-handlebars')
       console.log(err, "Something went wrong with the Database Update!")
   });
 
+
+app.use(express.static(path.join(__dirname,"app/public/bootstrap/dist")))
 
 app.listen(5000, function(err) {
     if (!err)
