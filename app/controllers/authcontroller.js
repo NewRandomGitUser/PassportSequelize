@@ -19,6 +19,13 @@ var models = require("../models");
     });
   }
 
+  exports.grupoProfile = function(req, res)
+  {
+        res.render('grupos/grupoProfile');
+
+  }
+
+
   exports.home = async function(req, res)
   {
     const conteudoPosts = await models.Post.findAll(
