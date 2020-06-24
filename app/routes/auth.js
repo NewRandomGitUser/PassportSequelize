@@ -24,5 +24,8 @@ module.exports = function(app, passport) {
 
   app.get('/perfil',isLoggedIn,authController.grupoProfile);
 
+  app.get('/grupos',isLoggedIn,authController.Grupos);
+app.get('/postagens',isLoggedIn,authController.PostagensDoGrupoDeRisco);
+
 
 }

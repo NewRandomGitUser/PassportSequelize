@@ -55,3 +55,14 @@ var models = require("../models");
   {
     res.render('usuarios/perfil',{nome:req.user})
   }
+
+
+  exports.Grupos = function(req, res)
+  {
+    res.render('usuarios/Grupos');
+  }
+
+  exports.PostagensDoGrupoDeRisco = function(req, res)
+  {
+    res.render('postagens/PostsDoGrupoDeRisco');
+  }
