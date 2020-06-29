@@ -1,0 +1,33 @@
+{{>_navbar}}
+<div class="col-sm-9 col-md-9 col-lg-5 mx-auto mt-3">
+<!-- <div class = "container mt-4"> -->
+
+<form id="criar_grupo" name="criar_grupo" method="post" action="BotaoCriarGrupo">
+  <div class = "card mt-4 ">
+
+    <div class="col-sm-9 col-md-9 col-lg-9 mx-auto mt-3">
+    <div class="form-label-group">
+      <label for="nome_do_grupo">
+        <h2>Nome do Grupo</h2>
+      </label>
+      <input type="text" class="form-control" name="nome_do_grupo" required autofocus><br />
+    </div>
+
+    <div class="form-label-group">
+      <label for="descricao">
+        <h2>Descrição</h2>
+      </label>
+      <textarea name = "descricao" class="form-control"></textarea><br />
+    </div>
+
+  </div>
+      <!-- <h2>Grupo Teste</h2>
+      <h5>Número de Integrantes: Teste</h5>
+      <h5>Descrição: Teste</h5> -->
+      <div class="d-flex flex-row-reverse">
+        <button class = " btn btn-success  d-flex justify-content-center">Criar Grupo</button>
+      </div>
+  </div>
+</form>
+
+</div>

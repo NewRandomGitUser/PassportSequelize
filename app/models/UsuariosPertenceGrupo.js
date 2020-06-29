@@ -4,6 +4,7 @@ module.exports = function(sequelize, Sequelize) {
 
   const UsuariosPertenceGrupo = sequelize.define('UsuariosPertenceGrupo', {
     id: {
+      autoIncrement: true,
       type: Sequelize.INTEGER,
       primaryKey: true,
     },

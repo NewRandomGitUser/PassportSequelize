@@ -2,7 +2,21 @@
 <div class="col-sm-9 col-md-9 col-lg-5 mx-auto mt-3">
 <!-- <div class = "container mt-4"> -->
 
-  <div class = "card mt-4">
+{{#each grupos}}
+<div class = "card mt-4">
+  <div class = "card-body">
+    <h2>Grupo {{this.dataValues.grupoNome}}</h2>
+    <h5>Número de Integrantes: 12 </h5>
+    <h5>Descrição: </h5>
+  </div>
+</div>
+{{else}}
+{{/each}}
+
+<!-- {{grupos}} -->
+
+
+  <!-- <div class = "card mt-4">
     <div class = "card-body">
       <h2>Grupo Teste</h2>
       <h5>Número de Integrantes: Teste</h5>
@@ -38,6 +52,6 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
-  </div>
+  </div> -->
 
 </div>
