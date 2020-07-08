@@ -19,9 +19,16 @@ var models = require("../models");
     });
   }
 
-  exports.grupoProfile = function(req, res)
+  exports.grupoProfile = async function(req, res)
   {
-        res.render('grupos/grupoProfile');
+
+    const Grupo = await models.Grupo.findOne({
+    where:{grupoNome:req.params.nomeGrupo}}).then((Grupo)=>{
+          console.log(Grupo.id+" "+Grupo.grupoNome)
+          res.render('grupos/grupoProfile',{grupo:Grupo});
+    }).catch((err)=>{
+      res.redirect('/grupos')
+    });
 
   }
 
@@ -57,7 +64,8 @@ var models = require("../models");
 
   exports.perfil = async function(req, res)
   {
-    res.render('usuarios/perfil',{nome:req.user})
+    console.log('grupo: '+req.params.grupo)
+    res.render('usuarios/perfil',{nome:req.user,grupo:req.params.grupo})
   }
 
 
@@ -72,9 +80,9 @@ var models = require("../models");
       }]})
 
 
-      console.log(gruposDoUsuario[0].grupoNome)
+      // console.log(gruposDoUsuario[0].grupoNome)
 
-      const grupos = gruposDoUsuario[0].grupoNome
+      // const grupos = gruposDoUsuario[0].grupoNome
 
       res.render('usuarios/Grupos',
       {
@@ -96,44 +104,83 @@ var models = require("../models");
   }
 
 
-    exports.BotaoCriarGrupo = async function(req, res){
+    exports.BotaoCriarGrupo =  async function(req, res, next){
       console.log("descricao:"+req.body.descricao+" nome_do_grupo:"+req.body.nome_do_grupo+" "+req.user.firstname)
       const novoGrupo = {
         grupoNome: req.body.nome_do_grupo,
         UserId: req.user.id,
       }
-      new models.Grupo(novoGrupo).save().then(() =>{
+       new models.Grupo(novoGrupo).save().then(() =>{
         console.log('show')
-        // res.redirect("/grupos")
-
       }).catch((err)=>{
         // req.flash("error_msg","Houve um erro durante o salvamento da postagem")
         console.log("eu vim pro segundo catch "+err)
         // res.redirect("/")
       })
+        next()
+      }
 
-      const grupoRecemCriado = await models.Grupo.findAll(
-        {
+      exports.InserirModerador =  async function(req,res,next){
+        const grupoRecemCriado = await models.Grupo.findAll({
+          where:{UserId:req.user.id},
+          order: [ [ 'createdAt', 'DESC' ]],
+          include:[{
+            model:models.User,
+            through: {attributes: []}
+          }],
           limit:1,
-          order: [ [ 'createdAt', 'DESC' ]]
-        });
-
-        console.log("grupo recem criado:"+grupoRecemCriado)
-        const novoUsuarioDoGrupo = {
-          GrupoId: grupoRecemCriado.id,
-          UserId: req.user.id,
-        }
-
-        new models.UsuariosPertenceGrupo(novoUsuarioDoGrupo).save().then(() =>{
-          // req.flash("success_msg","Postagem criada com sucesso!")
-          res.redirect("/grupos")
-
-        }).catch((err)=>{
-          // req.flash("error_msg","Houve um  erro durante o salvamento da postagem")
-          console.log(err)
-          res.redirect("/")
         })
 
+          console.log("grupo recem criado inserir moderador :"+grupoRecemCriado[0].grupoNome)
+          const novoUsuarioDoGrupo = {
+            GrupoId: grupoRecemCriado[0].id,
+            UserId: req.user.id,
+          }
+
+          new models.UsuariosPertenceGrupo(novoUsuarioDoGrupo).save().then(() =>{
+            // req.flash("success_msg","Postagem criada com sucesso!")
+            res.redirect("/grupos")
+
+          }).catch((err)=>{
+            // req.flash("error_msg","Houve um  erro durante o salvamento da postagem")
+            console.log(err)
+            res.redirect("/")
+          })
 
 
-    }
+      }
+
+
+
+      exports.NovaPostagem = async function(req, res)
+      {
+        console.log("id:"+req.params.grupo)
+        // const Grupo = await models.Grupo.findOne({
+        //   where:{grupoNome:req.params.nomeGrupo}
+        // })
+        //
+        //
+        const UsuariosGrupo = await models.UsuariosPertenceGrupo.findOne({
+          where:{UserId:req.user.id,GrupoId:req.params.grupo}
+        })
+
+        console.log(UsuariosGrupo)
+
+        //
+        //
+        // const novaPostagem = {
+        //   UsuariosPertenceGrupoId: UsuariosGrupo.id,
+        //   conteudo: req.body.conteudo,
+        // }
+        // new models.Postagem(novaPostagem).save().then(() =>{
+        //   console.log('show')
+        //   res.redirect('/grupos')
+        //   // res.redirect("/grupos")
+        //
+        // }).catch((err)=>{
+        //   // req.flash("error_msg","Houve um erro durante o salvamento da postagem")
+        //   console.log("eu vim pro segundo catch "+err)
+        //   // res.redirect("/")
+        // })
+
+      }

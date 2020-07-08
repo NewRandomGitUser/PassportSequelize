@@ -2,19 +2,16 @@
 {{>_navbar}}
 <div class="col-sm-9 col-md-9 col-lg-5 mx-auto mt-3">
 <!-- <div class = "container mt-4"> -->
-
   <div class = "card">
     <div class = "card-body">
-      <h2>Grupo Teste</h2>
+      <h2>Grupo {{grupo.dataValues.grupoNome}}</h2>
       <h5>Número de Integrantes: Teste</h5>
       <h5>Descrição: Teste</h5>
     </div>
   </div>
 
-
-
   <div class="col-sm- col-md- col-lg- mx-auto mt-5">
-    <form action = "/addPostagem/" method="POST">
+    <form name="criar_Post" method="POST" action = "/novaPostagem/{{grupo.dataValues.id}}">
       <textarea name = "conteudo" class="form-control"></textarea>
       <div class="d-flex flex-row-reverse">
         <button class="btn btn-outline-success p-2" type="submit">Criar postagem</button>

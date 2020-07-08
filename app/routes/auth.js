@@ -22,11 +22,13 @@ module.exports = function(app, passport) {
       res.redirect('/login');
   }
 
-  app.get('/perfil',isLoggedIn,authController.grupoProfile);
+  app.get('/perfilGrupo/:nomeGrupo',isLoggedIn,authController.grupoProfile);
 
   app.get('/grupos',isLoggedIn,authController.Grupos);
-app.get('/postagens',isLoggedIn,authController.PostagensDoGrupoDeRisco);
+  app.get('/postagens',isLoggedIn,authController.PostagensDoGrupoDeRisco);
 
-app.get('/criarGrupo',isLoggedIn,authController.CriarGrupo);
-app.post('/BotaocriarGrupo',isLoggedIn,authController.BotaoCriarGrupo);
+  app.get('/criarGrupo',isLoggedIn,authController.CriarGrupo);
+  app.post('/BotaocriarGrupo',isLoggedIn,authController.BotaoCriarGrupo,authController.InserirModerador);
+  app.post('/novaPostagem/grupo',isLoggedIn,authController.NovaPostagem);
+
 }
