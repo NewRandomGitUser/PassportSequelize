@@ -1,4 +1,41 @@
-<h2>Perfil</h2>
+<!-- <h2>Perfil</h2>
 <p>{{nome.firstname}} </p>
 <p>{{nome.lastname}} </p>
-<p>{{nome.email}} </p>
+<p>{{nome.email}} </p> -->
+{{>_navbar}}
+
+
+<div class = "container mt-4">
+  <div class = "card mt-4 col-lg-5">
+    <div class = "card-body">
+      <h2>{{nome.firstname}} {{nome.lastname}}</h2>
+      <h5>{{nome.email}} </h5>
+      <h5>Descrição: </h5>
+      <h5>Descrição: </h5>
+      <h5>Descrição: </h5>
+      <h5>Descrição: </h5>
+    </div>
+  </div>
+  <div class = "card mt-4 col-lg-9">
+    <div class = "card-body">
+      <h2>Ações em transição</h2>
+    </div>
+  </div>
+  <div class = "card mt-4 col-lg-9">
+    <div class = "card-body">
+      <h2>Ações Solicitadas</h2>
+    </div>
+  </div>
+  <a href="#"><div class = "card mt-4 col-lg-9">
+    <div class = "card-body">
+      <h2>Ações Concluídas</h2>
+    </div>
+  </div></a>
+  <div class = "card mt-4 col-lg-9">
+    <div class = "card-body">
+      <h2>Posts</h2>
+    </div>
+  </div>
+
+
+</div>

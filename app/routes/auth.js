@@ -13,6 +13,8 @@ module.exports = function(app, passport) {
     successRedirect: '/home',
     failureRedirect: '/login'
   }));
+
+  app.get('/perfil',isLoggedIn,authController.perfil);
   app.post('/addPostagem',isLoggedIn,authController.addPostagem);
 
   function isLoggedIn(req, res, next)
@@ -29,6 +31,10 @@ module.exports = function(app, passport) {
 
   app.get('/criarGrupo',isLoggedIn,authController.CriarGrupo);
   app.post('/BotaocriarGrupo',isLoggedIn,authController.BotaoCriarGrupo,authController.InserirModerador);
-  app.post('/novaPostagem/grupo',isLoggedIn,authController.NovaPostagem);
+  app.post('/novaPostagem/:grupo',isLoggedIn,authController.NovaPostagem);
+  app.get('/acaosinalizada',authController.AcaoSinalizada);
+  app.get('/acaotransicao',authController.AcaoEmTransicao);
+  app.get('/acaoconcluida',authController.AcaoConcluida);
+  app.get('/notadaacao',authController.NotaDaAcao)
 
 }

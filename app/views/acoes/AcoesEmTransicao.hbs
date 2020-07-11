@@ -1,0 +1,76 @@
+{{>_navbar}}
+<div class="col-sm-9 col-md-9 col-lg-5 mx-auto mt-3">
+  <h1>Ações em Transição</h1>
+
+  <div class = "card mt-4">
+    <div class = "card-body">
+      <h2>Postagem</h2>
+      8 de junho às 13:37<br />
+      <div class = "mt-4">
+        REST defines a set of conventions to create HTTP services. The basic four methods can create CRUD (Create, Read, Update, Delete)
+        • POST: Create a resource
+        • GET: Read a resource
+        • PUT: Update a resource
+        • DELETE: Delete a resource
+        In frontend side, you could do CRUD with form input as an example. The following is an example with POST. This case is pretty simple to run POST method only with HTML from front-end side.
+      </div>
+    </div>
+    <div class = "card-body">
+      <div class = "d-flex flex-row card">
+        <div class="mr-auto p-2">
+          <h2>Usuário Aceito: Fulaninho de Tal</h2>
+        </div>
+      </div>
+      <div class="d-flex flex-row-reverse mt-2">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" >Encerrar Ação</button>
+      </div>
+    </div>
+  </div>
+
+  <div class = "card mt-4">
+    <div class = "card-body">
+      <h2>Postagem</h2>
+      8 de junho às 13:37<br />
+      <div class = "mt-4">
+        REST defines a set of conventions to create HTTP services. The basic four methods can create CRUD (Create, Read, Update, Delete)
+        • POST: Create a resource
+        • GET: Read a resource
+        • PUT: Update a resource
+        • DELETE: Delete a resource
+        In frontend side, you could do CRUD with form input as an example. The following is an example with POST. This case is pretty simple to run POST method only with HTML from front-end side.
+      </div>
+    </div>
+    <div class = "card-body">
+      <div class = "d-flex flex-row card">
+        <div class="mr-auto p-2">
+          <h2>Usuário Aceito: Fulaninho de Tal</h2>
+        </div>
+      </div>
+      <div class="d-flex flex-row-reverse mt-2">
+        <button class="btn btn-primary" >Encerrar Ação</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Atribua uma nota à interação com o usuário</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+        <input type="number" id="quantity" name="quantity" min="1" max="10" value="0" style="text-align:center">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Confirmar Encerramento da Ação</button>
+      </div>
+    </div>
+  </div>
+</div>
