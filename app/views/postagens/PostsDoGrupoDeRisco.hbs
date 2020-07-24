@@ -1,12 +1,53 @@
-
 {{>_navbar}}
 <div class="col-sm-9 col-md-9 col-lg-5 mx-auto mt-3">
-  <div class = "card">
-    <div class = "card-body">
-      <h2>Grupo Teste</h2>
-      <h5>Número de Integrantes: Teste</h5>
-      <h5>Descrição: Teste</h5>
+<!-- <div class = "container mt-4"> -->
+<div class = "card mt-4">
+  <div class = "card-body">
+    <h2>Manuel da Costa, Edifício Brasília - Nota: 9/10</h2>
+    8 de junho às 13:37<br />
+    <div class = "mt-4">
+      Alguém indo ao supermercado neste final de semana?
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <div class = "card p-2 d-flex text-center w-25">Sinalizações: 12</div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <button class="btn btn-primary w-25" >Sinalizar</button>
     </div>
   </div>
+</div>
 
+<div class = "card mt-4">
+  <div class = "card-body">
+    <h2>Epaminondas Sampaio, Bairro Candelária- Nota: 8/10</h2>
+    8 de junho às 13:37<br />
+    <div class = "mt-4">
+      Alguém possui disponibilidade para levar cachorro de pequeno porte ao veterinário?
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <div class = "card p-2 d-flex text-center w-25">Sinalizações: 8</div>
+    </div>
+    <div class="d-flex flex-row-reverse">
+      <button class="btn btn-primary w-25" >Sinalizar</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- col-sm-9 col-lg-3 mt-3 card p-2  -->
+
+  <p>{{nome.firstname}} </p>
+  <p>{{nome.lastname}} </p>
+  <p>{{nome.email}} </p>
+
+
+  {{#each postagem}}
+    <p>
+      {{dataValues.conteudo}}
+    </p>
+  {{else}}
+  {{/each}}
 </div>

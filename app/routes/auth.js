@@ -36,5 +36,13 @@ module.exports = function(app, passport) {
   app.get('/acaotransicao',authController.AcaoEmTransicao);
   app.get('/acaoconcluida',authController.AcaoConcluida);
   app.get('/notadaacao',authController.NotaDaAcao)
+  app.get('/postsdogrupoderisco',authController.PostsDoGrupoDeRisco)
+  app.get('/postsvoluntarios',authController.PostsDosVoluntarios)
+  app.get('/acaopendente',authController.AcaoPendente)
+
+
+
+  // PostsDoGrupoDeRisco
+  // PostsDosVoluntarios
 
 }

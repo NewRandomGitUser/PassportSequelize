@@ -2,34 +2,88 @@
 {{>_navbar}}
 <div class="col-sm-9 col-md-9 col-lg-5 mx-auto mt-3">
 <!-- <div class = "container mt-4"> -->
-  <div class = "card">
+  <!-- <div class = "card">
     <div class = "card-body">
       <h2>Grupo {{grupo.dataValues.grupoNome}}</h2>
       <h5>Número de Integrantes: Teste</h5>
       <h5>Descrição: Teste</h5>
     </div>
+  </div> -->
+
+  <div class = "card">
+    <div class = "card-body">
+      <h2>Grupo Edifício Copan</h2>
+      <h5>Número de Integrantes: 20</h5>
+      <h5>Descrição: Grupo destinado a membros do Edifício Copan</h5>
+    </div>
   </div>
+
+  <!-- <div class = "card-body">
+    <h2>Solicitações</h2>
+    <div class = "d-flex flex-row card">
+      <div class="mr-auto">
+        <h2>Sônia Alvim, Nota:9/10</h2>
+      </div>
+        <button type="button" class="btn btn-success ">Aceitar</button>
+        <button type="button" class="btn btn-danger ">Rejeitar</button>
+    </div>
+    <div class = "d-flex flex-row card">
+      <div class="mr-auto">
+        <h2>Pedro Noronha, Nota:10/10</h2>
+      </div>
+        <button type="button" class="btn btn-success ">Aceitar</button>
+        <button type="button" class="btn btn-danger ">Rejeitar</button>
+    </div>
+    <div class = "d-flex flex-row card">
+      <div class="mr-auto">
+        <h2>Milena Gonçalves, Nota:10/10</h2>
+      </div>
+        <button type="button" class="btn btn-success ">Aceitar</button>
+        <button type="button" class="btn btn-danger ">Rejeitar</button>
+    </div>
+
+
+
+  </div> -->
+
+<h2 class = "mt-4"><b>Mural Solidário</b></h2>
 
   <div class="col-sm- col-md- col-lg- mx-auto mt-5">
     <form name="criar_Post" method="POST" action = "/novaPostagem/{{grupo.dataValues.id}}">
       <textarea name = "conteudo" class="form-control"></textarea>
       <div class="d-flex flex-row-reverse">
         <button class="btn btn-outline-success p-2" type="submit">Criar postagem</button>
+          <div class="form-group-lg">
+            <select class="form-control-lg" id="exampleFormControlSelect1" style="text-align:center">
+              <option selected disabled hidden>Tipo</option>
+              <option>Voluntário</option>
+              <option>Grupo De Risco</option>
+            </select>
+          </div>
       </div>
     </form>
   </div>
 
   <div class = "card mt-4">
     <div class = "card-body">
-      <h2>Nome, Nota: 9</h2>
+      <h2>José da Silva, Grupo de Risco</h2>
       8 de junho às 13:37<br />
       <div class = "mt-4">
-        REST defines a set of conventions to create HTTP services. The basic four methods can create CRUD (Create, Read, Update, Delete)
-        • POST: Create a resource
-        • GET: Read a resource
-        • PUT: Update a resource
-        • DELETE: Delete a resource
-        In frontend side, you could do CRUD with form input as an example. The following is an example with POST. This case is pretty simple to run POST method only with HTML from front-end side.
+        Alguém com disponibilidade para ir à farmácia?
+      </div>
+      <div class="d-flex flex-row-reverse">
+        <div class = "card p-2 d-flex text-center w-25">Sinalizações: 0</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class = "card mt-4">
+    <div class = "card-body">
+      <h2>Manuel da Costa, Voluntário - Nota: 10/10</h2>
+      8 de junho às 13:37<br />
+      <div class = "mt-4">
+        Me disponibilizo para trazer compras do supermercado neste final de semana caso alguém necessite.
       </div>
       <div class="d-flex flex-row-reverse">
         <div class = "card p-2 d-flex text-center w-25">Sinalizações: 12</div>
@@ -43,15 +97,10 @@
 
   <div class = "card mt-4">
     <div class = "card-body">
-      <h2>Nome, Nota: 9</h2>
+      <h2>Epaminondas Sampaio, Grupo de Risco - Nota: 8/10</h2>
       8 de junho às 13:37<br />
       <div class = "mt-4">
-        REST defines a set of conventions to create HTTP services. The basic four methods can create CRUD (Create, Read, Update, Delete)
-        • POST: Create a resource
-        • GET: Read a resource
-        • PUT: Update a resource
-        • DELETE: Delete a resource
-        In frontend side, you could do CRUD with form input as an example. The following is an example with POST. This case is pretty simple to run POST method only with HTML from front-end side.
+        Alguém possui disponibilidade para levar cachorro de pequeno porte ao veterinário?
       </div>
       <div class="d-flex flex-row-reverse">
         <div class = "card p-2 d-flex text-center w-25">Sinalizações: 12</div>

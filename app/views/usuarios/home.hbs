@@ -1,5 +1,104 @@
 
 {{>_navbar}}
+<div class="col-sm-9 col-md-9 col-lg-5 mx-auto mt-3">
+  <!-- <h2>Olá, {{nome.firstname}}</h2> -->
+  <h2> Olá, José</h2>
+  <h2>Aqui estão seus últimos updates</h2>
+
+
+  <div class = "card mt-4">
+    <div class = "card-body">
+      <h2>Grupo Edifício Copan</h2>
+      <h2>Adamastor Pereira, Nota: 9/10</h2>
+      19 de junho às 13:37<br />
+      <div class = "mt-4">
+        Olá. Gostaria de saber se alguém poderia trazer algumas compras do supermercado neste final de semana.
+      </div>
+      <div class="d-flex flex-row-reverse">
+        <div class = "card p-2 d-flex text-center w-25">Sinalizações: 5</div>
+      </div>
+      <div class="d-flex flex-row-reverse">
+        <button class="btn btn-primary w-25" >Sinalizar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class = "card mt-4">
+    <div class = "card-body">
+      <h2>Postagem</h2>
+      20 de junho às 13:37<br />
+      <div class = "mt-4">
+        Vou à farmácia amanhã à tarde. Alguém precisa que traga algo?
+      </div>
+    </div>
+    <div class = "card-body">
+      <h2>Usuários Sinalizadores</h2>
+      <div class = "d-flex flex-row card">
+        <div class="mr-auto">
+          <h2>Thiago Fonseca, Nota:8/10</h2>
+        </div>
+          <button type="button" class="btn btn-success ">Aceitar</button>
+          <button type="button" class="btn btn-danger ">Rejeitar</button>
+      </div>
+      <div class = "d-flex flex-row card mt-1">
+        <div class="mr-auto">
+          <h2>Geovana Mendes, Nota:8/10</h2>
+        </div>
+        <button type="button" class="btn btn-success ">Aceitar</button>
+        <button type="button" class="btn btn-danger ">Rejeitar</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class = "card mt-4">
+    <div class = "card-body">
+      <h2>Postagem</h2>
+      8 de junho às 13:37<br />
+      <div class = "mt-4">
+        Alguém indo ao supermercado neste final de semana?
+      </div>
+    </div>
+    <div class = "card-body">
+      <div class = "d-flex flex-row card">
+        <div class="mr-auto p-2">
+          <h2>Usuário Aceito: Gerson Mesquita</h2>
+        </div>
+      </div>
+      <div class="d-flex flex-row-reverse mt-2">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" >Encerrar Ação</button>
+      </div>
+    </div>
+  </div>
+
+  <div class = "card mt-4">
+    <div class = "card-body">
+      <h2>Postagem</h2>
+      8 de junho às 13:37<br />
+      <div class = "mt-4">
+        Alguém pretende ir a alguma loga de construção civil?
+      </div>
+    </div>
+    <div class = "card-body ">
+      <div class = "card p-3">
+          <h3>Usuário Responsável: Helena Mesquita</h3>
+          <h3>Término: 11/06/2020, 18:30</h3>
+          <h3>Nota Atribuída: 10/10</h3>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
 
 <div class = "container mt-4">
 
@@ -7,15 +106,7 @@
 
   <h2>Olá, {{nome.firstname}}</h2>
   <h5>Hurray! you are logged in.</h5>
-  <div class="col-sm- col-md- col-lg- mx-auto">
-  <form action = "/addPostagem/" method="POST">
-      <textarea name = "conteudo" class="form-control"></textarea>
 
-      <div class="d-flex flex-row-reverse">
-        <button class="btn btn-outline-success p-2" type="submit">Criar postagem</button>
-      </div>
-  </form>
-</div>
 
 
 

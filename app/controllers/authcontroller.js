@@ -213,3 +213,18 @@ var models = require("../models");
       {
         res.render('acoes/NotaDaAcao');
       }
+
+      exports.PostsDoGrupoDeRisco = function(req, res)
+      {
+        res.render('postagens/PostsDoGrupoDeRisco');
+      }
+
+      exports.PostsDosVoluntarios = function(req, res)
+      {
+        res.render('postagens/PostsFeitos');
+      }
+
+      exports.AcaoPendente = function(req, res)
+      {
+        res.render('acoes/AcoesPendentes');
+      }
